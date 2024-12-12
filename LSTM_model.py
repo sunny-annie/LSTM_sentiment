@@ -106,8 +106,8 @@ def predict_sentiment(review):
     prediction = model.to(device)(preprocess_single_string(review, seq_len=128, vocab_to_int=vocab_to_int).unsqueeze(0).to(device))
     probability = prediction[0][0]
     if probability > 0.50:
-        prediction = 'Отрицательный отзыв'
+        prediction = 'Положительный отзыв'
         
     else:
-        prediction = 'Положительный отзыв'
+        prediction = 'Отрицательный отзыв'
     return prediction
